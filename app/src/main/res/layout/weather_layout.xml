@@ -1,70 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.sxc.cai.weather.util.ReFlashLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/my_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
+        android:id="@+id/blue_layout"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:background="#484E61">
-
-        <Button
-            android:id="@+id/switch_city"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="10dp"
-            android:background="@drawable/home"/>
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="vertical"
+        android:background="#27A5F9" >
 
         <TextView
             android:id="@+id/city_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:textColor="#fff"
-            android:textSize="24sp"/>
-
-        <Button
-            android:id="@+id/refresh_weather"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="10dp"
-            android:background="@drawable/refresh"/>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#27A5F9" >
-
-        <TextView
-            android:id="@+id/publish_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="30dp"
             android:textColor="#FFF"
-            android:textSize="18sp"/>
+            android:textSize="25sp"/>
 
         <LinearLayout
             android:id="@+id/weather_info_layout"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:orientation="vertical">
 
-            <TextView
-                android:id="@+id/current_date"
+            <LinearLayout
+                android:id="@+id/weather_wendu_layout"
                 android:layout_width="wrap_content"
-                android:layout_height="40dp"
-                android:gravity="center"
-                android:textColor="#FFF"
-                android:textSize="18sp"/>
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="20dp"
+                android:layout_gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/weather_wendu"
+                    android:layout_width="wrap_content"
+                    android:layout_height="120dp"
+                    android:layout_gravity="center"
+                    android:textColor="#FFF"
+                    android:textSize="110sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#FFF"
+                    android:textSize="60sp"
+                    android:text="°"/>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/weather_desp"
@@ -72,12 +60,14 @@
                 android:layout_height="60dp"
                 android:layout_gravity="center_horizontal"
                 android:gravity="center"
+                android:layout_marginTop="20dp"
                 android:textColor="#FFF"
-                android:textSize="18sp"/>
+                android:textSize="20sp"/>
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
+                android:layout_marginTop="20dp"
                 android:layout_gravity="center_horizontal"
                 android:orientation="horizontal">
 
@@ -87,7 +77,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textColor="#FFF"
-                    android:textSize="40sp"/>
+                    android:textSize="30sp"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -105,8 +95,193 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:textColor="#FFF"
-                    android:textSize="40sp"/>
+                    android:textSize="30sp"/>
             </LinearLayout>
         </LinearLayout>
-    </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/white_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:text="昨天"/>
+            <ImageView
+                android:id="@+id/image1"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/wendu1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="10sp"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#dcd4d4"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textColor="#000"
+                android:textSize="15sp"
+                android:text="明天"/>
+            <ImageView
+                android:id="@+id/image2"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/wendu2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="10sp"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#dcd4d4"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/date3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textColor="#000"
+                android:textSize="15sp"/>
+            <ImageView
+                android:id="@+id/image3"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/wendu3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="10sp"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#dcd4d4"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/date4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textColor="#000"
+                android:textSize="15sp"/>
+            <ImageView
+                android:id="@+id/image4"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/wendu4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="10sp"/>
+        </LinearLayout>
+        <ImageView
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#dcd4d4"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/date5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="40dp"
+                android:textColor="#000"
+                android:textSize="15sp"/>
+            <ImageView
+                android:id="@+id/image5"
+                android:layout_width="50dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center"/>
+            <TextView
+                android:id="@+id/wendu5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#000"
+                android:textSize="10sp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="40dp"-->
+        <!--android:background="#faf9f9">-->
+        <!--<Button-->
+        <!--android:id="@+id/fanhui"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginLeft="50dp"-->
+        <!--android:background="@drawable/fanhui"/>-->
+
+        <!--<Button-->
+            <!--android:id="@+id/shuaxin"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:layout_centerVertical="true"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:background="@drawable/refresh"/>-->
+
+        <!--<Button-->
+        <!--android:id="@+id/city_change"-->
+        <!--android:layout_width="30dp"-->
+        <!--android:layout_height="30dp"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_centerVertical="true"-->
+        <!--android:layout_marginRight="50dp"-->
+        <!--android:background="@drawable/fenlei"/>-->
+    <!--</RelativeLayout>-->
+</com.sxc.cai.weather.util.ReFlashLinearLayout>
+
+

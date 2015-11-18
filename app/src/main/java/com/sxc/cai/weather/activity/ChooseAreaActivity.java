@@ -5,8 +5,10 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.widget.AdapterView;
@@ -69,19 +71,20 @@ public class ChooseAreaActivity extends Activity {
      * 是否从WeatherActivity中跳转过来
      */
     private boolean isFromWeatherActivity;
+    private List<String> cityLists = new ArrayList<String>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity",false);
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        //已经选择了城市且不是从WeatherActivity跳转过来,才会直接跳转到WeatherActivity
-        if (!prefs.getBoolean("city_selected",false) && !isFromWeatherActivity){
-            Intent intent = new Intent(this,WeatherActivity.class);
-            startActivity(intent);
-            finish();
-            return;
-        }
+//        isFromWeatherActivity = getIntent().getBooleanExtra("from_weather_activity",false);
+//        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+//        //已经选择了城市且不是从WeatherActivity跳转过来,才会直接跳转到WeatherActivity
+//        if (!isFromWeatherActivity){
+//            Intent intent = new Intent(this,WeatherActivity.class);
+//            startActivity(intent);
+//            finish();
+//            return;
+//        }
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.choose_area);
         listView = (ListView) findViewById(R.id.list_view);
@@ -99,11 +102,12 @@ public class ChooseAreaActivity extends Activity {
                     selectedCity = cityList.get(position);
                     queryCounties();
                 } else if (currentLevel ==LEVEL_COUNTY){
-                    String countyCode = countyList.get(position).getCountyCode();
-                    Intent intent = new Intent(ChooseAreaActivity.this,WeatherActivity.class);
-                    intent.putExtra("county_code",countyCode);
-                    startActivity(intent);
+                    String countyName = countyList.get(position).getCountyName();
+                    Intent intent = new Intent();
+                    intent.putExtra("county_name", countyName);
+                    setResult(RESULT_OK,intent);
                     finish();
+                    Log.e("活动3",countyName);
                 }
             }
         });
@@ -120,7 +124,7 @@ public class ChooseAreaActivity extends Activity {
             for (Province province : provinceList){
                 dataList.add(province.getProvinceName());
             }
-            adapter.notifyDataSetChanged();
+            adapter.notifyDataSetChanged();  //动态更新ListView数据
             listView.setSelection(0);
             titleText.setText("中国");
             currentLevel = LEVEL_PROVINCE;

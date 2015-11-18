@@ -11,6 +11,10 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
+            <option value="$PROJECT_DIR$/listviewtest" />
+            <option value="$PROJECT_DIR$/testapp" />
+            <option value="$PROJECT_DIR$/tupiansxc" />
+            <option value="$PROJECT_DIR$/viewpagertest" />
           </set>
         </option>
       </GradleProjectSettings>
